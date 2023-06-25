@@ -1,6 +1,8 @@
 package com.example.demo.controller
 
+import com.example.demo.controller.dto.CreateProductDto
 import com.example.demo.controller.dto.ProductDto
+import com.example.demo.controller.dto.UpdateProductDto
 import com.example.demo.model.Product
 import com.example.demo.service.ProductService
 import lombok.RequiredArgsConstructor
@@ -8,9 +10,10 @@ import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import java.util.stream.Collectors
+import com.example.demo.service.argument.CreateProductArgument
+import com.example.demo.service.argument.UpdateProductArgument
 
-
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("product")
 class ProductController(
@@ -18,16 +21,14 @@ class ProductController(
 
 ) {
     @GetMapping("list")
-    fun list(): List<ProductDto?> {
+    fun list(): List<ProductDto> {
         return productService.list().stream()
             .map { product ->
-                product?.let {
-                    ProductDto.Builder()
-                        .id(it.id)
-                        .title(it.title)
-                        .price(it.price)
-                        .build()
-                }
+                ProductDto.Builder()
+                    .id(product.id)
+                    .title(product.title)
+                    .price(product.price)
+                    .build()
             }
             .collect(Collectors.toList())
     }
@@ -35,20 +36,32 @@ class ProductController(
     @PostMapping("create")
     fun create(@RequestBody dto: CreateProductDto): ProductDto? {
         val product: Product = productService.create(
-            CreateProductArgument.builder()
-                .price(dto.getPrice())
-                .title(dto.getTitle())
+            CreateProductArgument.Builder()
+                .price(dto.price)
+                .title(dto.title)
                 .build()
         )
         return ProductDto.Builder()
-            .id(product.getId())
-            .title(product.getTitle())
-            .price(product.getPrice())
+            .id(product.id)
+            .title(product.title)
+            .price(product.price)
             .build()
     }
 
     @PutMapping("update/{id}")
     fun update(@PathVariable id: Long?, @RequestBody dto: UpdateProductDto?): ProductDto? {
-        return null
+        val updatedProduct = productService.update(
+            id,
+            UpdateProductArgument.Builder()
+                .title(dto?.title)
+                .price(dto?.price)
+                .build()
+        )
+
+        return ProductDto.Builder()
+            .id(updatedProduct.id)
+            .title(updatedProduct.title)
+            .price(updatedProduct.price)
+            .build()
     }
 }
