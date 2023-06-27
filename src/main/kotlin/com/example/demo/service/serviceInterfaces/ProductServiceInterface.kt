@@ -1,4 +1,4 @@
-package com.example.demo.service
+package com.example.demo.service.serviceInterfaces
 
 import com.example.demo.model.Product
 import com.example.demo.service.argument.CreateProductArgument
@@ -14,4 +14,6 @@ interface ProductServiceInterface {
     fun getExisting(id: UUID): Product?
 
     fun update(id: UUID?, argument: UpdateProductArgument): Product
+
+     fun delete(id: UUID?)
 }

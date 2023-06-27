@@ -1,5 +1,4 @@
 package com.example.demo.model
-import com.example.demo.model.Category
 import lombok.*
 import java.util.*
 import javax.persistence.*

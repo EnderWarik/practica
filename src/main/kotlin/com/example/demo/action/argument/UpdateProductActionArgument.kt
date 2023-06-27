@@ -1,14 +1,12 @@
-package com.example.demo.action
+package com.example.demo.action.argument
 
-import com.example.demo.model.Category
-import com.example.demo.model.Product
 import lombok.Builder
 import lombok.Value
 import java.util.*
 
 @Value
 @Builder
-class CreateProductActionArgument
+class UpdateProductActionArgument
     (   var title: String? = null,
         var price: Long? = null,
         var categoryId: UUID? = null
@@ -26,7 +24,7 @@ class CreateProductActionArgument
         fun price(price: Long?) = apply { this.price = price }
         fun categoryId(categoryId: UUID?) = apply { this.categoryId = categoryId }
 
-        fun build() = CreateProductActionArgument(title, price, categoryId)
+        fun build() = UpdateProductActionArgument(title, price, categoryId)
     }
 
 }
