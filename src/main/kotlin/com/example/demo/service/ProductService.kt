@@ -29,11 +29,11 @@ class ProductService(
     }
 
 
-    override fun getExisting(id: Long): Product? {
+    override fun getExisting(id: UUID): Product? {
         return repository.findById(id).orElse(null)
     }
 
-    override fun update(id: Long?, argument: UpdateProductArgument): Product {
+    override fun update(id: UUID?, argument: UpdateProductArgument): Product {
        val product = id?.let { getExisting(it) };
 
         if(product != null){

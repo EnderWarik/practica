@@ -3,6 +3,7 @@ package com.example.demo.service
 import com.example.demo.model.Product
 import com.example.demo.service.argument.CreateProductArgument
 import com.example.demo.service.argument.UpdateProductArgument
+import java.util.*
 
 
 interface ProductServiceInterface {
@@ -10,7 +11,7 @@ interface ProductServiceInterface {
 
     fun create(argument: CreateProductArgument): Product
 
-    fun getExisting(id: Long): Product?
+    fun getExisting(id: UUID): Product?
 
-    fun update(id: Long?, argument: UpdateProductArgument): Product
+    fun update(id: UUID?, argument: UpdateProductArgument): Product
 }

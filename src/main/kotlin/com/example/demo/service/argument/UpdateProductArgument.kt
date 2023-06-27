@@ -1,5 +1,8 @@
 package com.example.demo.service.argument
 
+import lombok.Builder
+
+@Builder
 class UpdateProductArgument (
     var title: String?,
     var price: Long?

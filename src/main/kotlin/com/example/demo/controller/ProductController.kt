@@ -1,5 +1,6 @@
 package com.example.demo.controller
 
+import com.example.demo.action.CreateProductAction
 import com.example.demo.controller.dto.CreateProductDto
 import com.example.demo.controller.dto.ProductDto
 import com.example.demo.controller.dto.UpdateProductDto
@@ -12,13 +13,14 @@ import org.springframework.web.bind.annotation.*
 import java.util.stream.Collectors
 import com.example.demo.service.argument.CreateProductArgument
 import com.example.demo.service.argument.UpdateProductArgument
+import java.util.*
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("product")
 class ProductController(
     private val productService: ProductService,
-
+    private val createProductAction: CreateProductAction
 ) {
     @GetMapping("list")
     fun list(): List<ProductDto> {
@@ -49,7 +51,7 @@ class ProductController(
     }
 
     @PutMapping("update/{id}")
-    fun update(@PathVariable id: Long?, @RequestBody dto: UpdateProductDto?): ProductDto? {
+    fun update(@PathVariable id: UUID?, @RequestBody dto: UpdateProductDto?): ProductDto? {
         val updatedProduct = productService.update(
             id,
             UpdateProductArgument.Builder()
