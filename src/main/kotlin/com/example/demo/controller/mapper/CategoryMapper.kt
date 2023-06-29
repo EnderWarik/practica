@@ -1,13 +1,9 @@
 package com.example.demo.controller.mapper
 
-import com.example.demo.action.argument.CreateProductActionArgument
-import com.example.demo.action.argument.UpdateProductActionArgument
 import com.example.demo.controller.dto.*
 import com.example.demo.model.Category
-import com.example.demo.model.Product
-import com.example.demo.service.argument.CreateCategoryArgument
-import com.example.demo.service.argument.SearchProductArgument
-import com.example.demo.service.argument.UpdateCategoryArgument
+import com.example.demo.service.category.arguments.CreateCategoryArgument
+import com.example.demo.service.category.arguments.UpdateCategoryArgument
 import org.springframework.stereotype.Component
 
 @Component

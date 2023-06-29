@@ -1,9 +1,9 @@
-package com.example.demo.service.serviceInterfaces
+package com.example.demo.service.product
 
 import com.example.demo.model.Product
-import com.example.demo.service.argument.CreateProductArgument
-import com.example.demo.service.argument.SearchProductArgument
-import com.example.demo.service.argument.UpdateProductArgument
+import com.example.demo.service.product.arguments.CreateProductArgument
+import com.example.demo.service.product.arguments.SearchProductArgument
+import com.example.demo.service.product.arguments.UpdateProductArgument
 import java.util.*
 
 

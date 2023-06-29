@@ -1,8 +1,4 @@
-package com.example.demo.service.argument
-
-import com.example.demo.model.Category
-import com.example.demo.model.Product
-import java.util.UUID
+package com.example.demo.service.product.arguments
 
 public class SearchProductArgument (
     var productTitle: String? = null,

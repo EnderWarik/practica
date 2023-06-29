@@ -2,14 +2,11 @@ package com.example.demo.controller
 
 import com.example.demo.controller.dto.*
 import com.example.demo.controller.mapper.CategoryMapper
-import com.example.demo.service.argument.CreateCategoryArgument
-import com.example.demo.service.argument.UpdateCategoryArgument
-import com.example.demo.service.implementation.CategoryService
+import com.example.demo.service.category.CategoryService
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.util.*
-import java.util.stream.Collectors
 
 
 @RestController

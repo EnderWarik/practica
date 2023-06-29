@@ -2,9 +2,9 @@ package com.example.demo.action
 
 import com.example.demo.action.argument.CreateProductActionArgument
 import com.example.demo.model.Product
-import com.example.demo.service.implementation.ProductService
-import com.example.demo.service.argument.CreateProductArgument
-import com.example.demo.service.implementation.CategoryService
+import com.example.demo.service.product.ProductService
+import com.example.demo.service.product.arguments.CreateProductArgument
+import com.example.demo.service.category.CategoryService
 import lombok.RequiredArgsConstructor
 import org.springframework.stereotype.Component
 

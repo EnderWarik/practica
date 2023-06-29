@@ -7,7 +7,7 @@ import com.example.demo.controller.dto.ProductDto
 import com.example.demo.controller.dto.SearchProductDto
 import com.example.demo.controller.dto.UpdateProductDto
 import com.example.demo.model.Product
-import com.example.demo.service.argument.SearchProductArgument
+import com.example.demo.service.product.arguments.SearchProductArgument
 import org.springframework.stereotype.Component
 
 @Component

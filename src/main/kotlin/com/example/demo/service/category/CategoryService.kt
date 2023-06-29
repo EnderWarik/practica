@@ -1,10 +1,9 @@
-package com.example.demo.service.implementation
+package com.example.demo.service.category
 
 import com.example.demo.model.Category
 import com.example.demo.repository.CategoryRepository
-import com.example.demo.service.argument.CreateCategoryArgument
-import com.example.demo.service.argument.UpdateCategoryArgument
-import com.example.demo.service.serviceInterfaces.CategoryServiceInterface
+import com.example.demo.service.category.arguments.CreateCategoryArgument
+import com.example.demo.service.category.arguments.UpdateCategoryArgument
 import lombok.RequiredArgsConstructor
 import org.springframework.stereotype.Service
 import java.util.*

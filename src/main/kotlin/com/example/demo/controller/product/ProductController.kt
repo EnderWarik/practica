@@ -1,20 +1,17 @@
-package com.example.demo.controller
+package com.example.demo.controller.product
 
 import com.example.demo.action.CreateProductAction
 import com.example.demo.action.UpdateProductAction
-import com.example.demo.action.argument.CreateProductActionArgument
-import com.example.demo.action.argument.UpdateProductActionArgument
 import com.example.demo.controller.dto.CreateProductDto
 import com.example.demo.controller.dto.ProductDto
 import com.example.demo.controller.dto.SearchProductDto
 import com.example.demo.controller.dto.UpdateProductDto
 import com.example.demo.controller.mapper.ProductMapper
-import com.example.demo.service.implementation.ProductService
+import com.example.demo.service.product.ProductService
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import java.util.*
-import java.util.stream.Collectors
 
 
 @RestController

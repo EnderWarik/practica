@@ -1,18 +1,14 @@
-package com.example.demo.service.implementation
+package com.example.demo.service.product
 
-import com.example.demo.controller.dto.ProductDto
-import com.example.demo.controller.dto.SearchProductDto
 import com.example.demo.model.Product
 import com.example.demo.repository.ProductRepository
-import com.example.demo.service.serviceInterfaces.ProductServiceInterface
 import org.springframework.stereotype.Service
-import com.example.demo.service.argument.CreateProductArgument
-import com.example.demo.service.argument.SearchProductArgument
-import com.example.demo.service.argument.UpdateProductArgument
+import com.example.demo.service.product.arguments.CreateProductArgument
+import com.example.demo.service.product.arguments.SearchProductArgument
+import com.example.demo.service.product.arguments.UpdateProductArgument
 import lombok.RequiredArgsConstructor
 import java.lang.RuntimeException
 import java.util.*
-import java.util.stream.Collectors
 
 
 @Service

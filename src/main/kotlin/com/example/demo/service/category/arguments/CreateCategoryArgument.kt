@@ -1,8 +1,6 @@
-package com.example.demo.service.argument
+package com.example.demo.service.category.arguments
 
-import com.example.demo.model.Product
-
-public class UpdateCategoryArgument (
+public class CreateCategoryArgument (
     var title: String?
 )
 {
@@ -12,6 +10,7 @@ public class UpdateCategoryArgument (
     )
     {
         fun title(title: String?) = apply { this.title = title }
-        fun build() = UpdateCategoryArgument(title)
+
+        fun build() = CreateCategoryArgument(title)
     }
 }
