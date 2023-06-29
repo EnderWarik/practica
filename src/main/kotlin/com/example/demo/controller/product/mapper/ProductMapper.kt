@@ -1,11 +1,11 @@
-package com.example.demo.controller.mapper
+package com.example.demo.controller.product.mapper
 
 import com.example.demo.action.argument.CreateProductActionArgument
 import com.example.demo.action.argument.UpdateProductActionArgument
-import com.example.demo.controller.dto.CreateProductDto
-import com.example.demo.controller.dto.ProductDto
-import com.example.demo.controller.dto.SearchProductDto
-import com.example.demo.controller.dto.UpdateProductDto
+import com.example.demo.controller.product.dto.CreateProductDto
+import com.example.demo.controller.product.dto.ProductDto
+import com.example.demo.controller.product.dto.SearchProductDto
+import com.example.demo.controller.product.dto.UpdateProductDto
 import com.example.demo.model.Product
 import com.example.demo.service.product.arguments.SearchProductArgument
 import org.springframework.stereotype.Component

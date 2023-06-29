@@ -15,7 +15,7 @@ import java.util.*
                            val categoryService: CategoryService
 ) {
 
-    fun execute(id: UUID?,argument: UpdateProductActionArgument): Product {
+    fun execute(id: UUID,argument: UpdateProductActionArgument): Product {
 
         val category = argument.categoryId?.let { categoryService.getExisting(it) }
         return productService.update(

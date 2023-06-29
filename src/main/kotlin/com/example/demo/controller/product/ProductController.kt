@@ -2,11 +2,11 @@ package com.example.demo.controller.product
 
 import com.example.demo.action.CreateProductAction
 import com.example.demo.action.UpdateProductAction
-import com.example.demo.controller.dto.CreateProductDto
-import com.example.demo.controller.dto.ProductDto
-import com.example.demo.controller.dto.SearchProductDto
-import com.example.demo.controller.dto.UpdateProductDto
-import com.example.demo.controller.mapper.ProductMapper
+import com.example.demo.controller.product.dto.CreateProductDto
+import com.example.demo.controller.product.dto.ProductDto
+import com.example.demo.controller.product.dto.SearchProductDto
+import com.example.demo.controller.product.dto.UpdateProductDto
+import com.example.demo.controller.product.mapper.ProductMapper
 import com.example.demo.service.product.ProductService
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus

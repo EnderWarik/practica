@@ -1,4 +1,4 @@
-package com.example.demo.controller.dto
+package com.example.demo.controller.product.dto
 
 import com.example.demo.model.Category
 import java.util.UUID

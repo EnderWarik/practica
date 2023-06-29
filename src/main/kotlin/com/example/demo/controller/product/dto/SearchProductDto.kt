@@ -1,7 +1,4 @@
-package com.example.demo.controller.dto
-
-import com.example.demo.model.Category
-import java.util.UUID
+package com.example.demo.controller.product.dto
 
 
 class SearchProductDto(
