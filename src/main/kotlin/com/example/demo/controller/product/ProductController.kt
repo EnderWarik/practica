@@ -38,7 +38,7 @@ class ProductController(
     }
 
     @PutMapping("update/{id}")
-    fun update(@PathVariable id: UUID?, @RequestBody dto: UpdateProductDto?): ProductDto? {
+    fun update(@PathVariable id: UUID, @RequestBody dto: UpdateProductDto?): ProductDto? {
         val updateProduct = updateProductAction.execute(id,productMapper.updateProductActionArgument(dto))
         return productMapper.productDto(updateProduct)
     }
