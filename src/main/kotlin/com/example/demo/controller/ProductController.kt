@@ -6,9 +6,10 @@ import com.example.demo.action.argument.CreateProductActionArgument
 import com.example.demo.action.argument.UpdateProductActionArgument
 import com.example.demo.controller.dto.CreateProductDto
 import com.example.demo.controller.dto.ProductDto
+import com.example.demo.controller.dto.SearchProductDto
 import com.example.demo.controller.dto.UpdateProductDto
+import com.example.demo.controller.mapper.ProductMapper
 import com.example.demo.service.implementation.ProductService
-import com.example.demo.service.argument.UpdateProductArgument
 import lombok.RequiredArgsConstructor
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -22,54 +23,27 @@ import java.util.stream.Collectors
 class ProductController(
     private val productService: ProductService,
     private val createProductAction: CreateProductAction,
-    private val updateProductAction: UpdateProductAction
+    private val updateProductAction: UpdateProductAction,
+    private val productMapper: ProductMapper
 ) {
     @GetMapping("list")
-    fun list(): List<ProductDto> {
-        return productService.list().stream()
+    fun list(@RequestParam dto: SearchProductDto?): List<ProductDto> {
+        return productService.list(productMapper.productArgument(dto))
             .map { product ->
-                ProductDto.Builder()
-                    .id(product.id)
-                    .title(product.title)
-                    .price(product.price)
-                    .category(product.category)
-                    .build()
+              productMapper.productDto(product)
             }
-            .collect(Collectors.toList())
     }
 
     @PostMapping("create")
     fun create(@RequestBody dto: CreateProductDto): ProductDto? {
-        val product = createProductAction.execute(CreateProductActionArgument
-            .Builder()
-            .title(dto.title)
-            .price(dto.price)
-            .categoryId(dto.categoryId)
-            .build())
-
-        return ProductDto.Builder()
-            .id(product.id)
-            .title(product.title)
-            .price(product.price)
-            .category(product.category)
-            .build()
+        val product = createProductAction.execute(productMapper.createProductActionArgument(dto))
+        return productMapper.productDto(product)
     }
 
     @PutMapping("update/{id}")
     fun update(@PathVariable id: UUID?, @RequestBody dto: UpdateProductDto?): ProductDto? {
-        val updateProduct = updateProductAction.execute(id,UpdateProductActionArgument
-            .Builder()
-            .title(dto?.title)
-            .price(dto?.price)
-            .categoryId(dto?.categoryId)
-            .build())
-
-        return ProductDto.Builder()
-            .id(updateProduct.id)
-            .title(updateProduct.title)
-            .price(updateProduct.price)
-            .category(updateProduct.category)
-            .build()
+        val updateProduct = updateProductAction.execute(id,productMapper.updateProductActionArgument(dto))
+        return productMapper.productDto(updateProduct)
     }
 
     @DeleteMapping("delete/{id}")

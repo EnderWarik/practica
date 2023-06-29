@@ -14,9 +14,9 @@ interface CategoryServiceInterface  {
 
     fun create(argument: CreateCategoryArgument): Category
 
-     fun getExisting(id: UUID): Category?
+     fun getExisting(id: UUID): Category
 
-     fun update(id: UUID?, argument: UpdateCategoryArgument) : Category
+     fun update(id: UUID, argument: UpdateCategoryArgument) : Category
 
     fun delete(id: UUID?)
 }
