@@ -16,5 +16,5 @@ interface ProductServiceInterface {
 
     fun update(id: UUID, argument: UpdateProductArgument): Product
 
-     fun delete(id: UUID?)
+     fun delete(id: UUID)
 }

@@ -1,7 +1,8 @@
-package com.example.demo.action
+package com.example.demo.action.product
 
-import com.example.demo.action.argument.UpdateProductActionArgument
+import com.example.demo.action.product.argument.UpdateProductActionArgument
 import com.example.demo.model.Product
+import com.example.demo.service.card.CardService
 import com.example.demo.service.product.ProductService
 import com.example.demo.service.product.arguments.UpdateProductArgument
 import com.example.demo.service.category.CategoryService
@@ -12,11 +13,12 @@ import java.util.*
 @Component
 @RequiredArgsConstructor
  class UpdateProductAction(val productService: ProductService,
-                           val categoryService: CategoryService
+                           val categoryService: CategoryService,
+                           val cardService: CardService
 ) {
 
     fun execute(id: UUID,argument: UpdateProductActionArgument): Product {
-
+        val card = argument.cardId?.let { cardService.getExisting(it) }
         val category = argument.categoryId?.let { categoryService.getExisting(it) }
         return productService.update(
             id,
@@ -24,6 +26,7 @@ import java.util.*
                 .price(argument.price)
                 .title(argument.title)
                 .category(category)
+                .card(card)
                 .build()
         )
     }

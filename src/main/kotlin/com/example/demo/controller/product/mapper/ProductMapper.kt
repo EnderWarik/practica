@@ -1,7 +1,7 @@
 package com.example.demo.controller.product.mapper
 
-import com.example.demo.action.argument.CreateProductActionArgument
-import com.example.demo.action.argument.UpdateProductActionArgument
+import com.example.demo.action.product.argument.CreateProductActionArgument
+import com.example.demo.action.product.argument.UpdateProductActionArgument
 import com.example.demo.controller.product.dto.CreateProductDto
 import com.example.demo.controller.product.dto.ProductDto
 import com.example.demo.controller.product.dto.SearchProductDto
@@ -38,6 +38,7 @@ class ProductMapper {
             .title(dto.title)
             .price(dto.price)
             .categoryId(dto.categoryId)
+            .cardId(dto.cardId)
             .build()
     }
 
@@ -48,6 +49,7 @@ class ProductMapper {
             .title(dto?.title)
             .price(dto?.price)
             .categoryId(dto?.categoryId)
+            .cardId(dto?.cardId)
             .build()
     }
 }

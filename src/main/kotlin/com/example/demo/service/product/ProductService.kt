@@ -45,23 +45,16 @@ class ProductService(
 
     override fun update(id: UUID, argument: UpdateProductArgument): Product {
        val product = getExisting(id)
+        val a:Unit = Unit
         product.price = argument.price
         product.title = argument.title
         product.category = argument.category
         return repository.save( product)
     }
 
-    override fun delete(id: UUID?) {
-        val product = id?.let { getExisting(it) };
-
-        if(product != null){
-            return repository.delete(product)
-        }
-        else
-        {
-            throw RuntimeException()
-        }
-
+    override fun delete(id: UUID) {
+        val product = getExisting(id)
+        return repository.delete(product)
     }
 
 }

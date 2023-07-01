@@ -1,4 +1,4 @@
-package com.example.demo.action.argument
+package com.example.demo.action.product.argument
 
 import lombok.Builder
 import lombok.Value
@@ -9,7 +9,8 @@ import java.util.*
 class UpdateProductActionArgument
     (   var title: String? = null,
         var price: Long? = null,
-        var categoryId: UUID? = null
+        var categoryId: UUID? = null,
+        var cardId: UUID? = null
 )
 {
 
@@ -17,14 +18,16 @@ class UpdateProductActionArgument
 
         var title: String? = null,
         var price: Long? = null,
-        var categoryId: UUID? = null)
+        var categoryId: UUID? = null,
+        var cardId: UUID? = null)
     {
 
         fun title(title: String?)= apply { this.title = title }
         fun price(price: Long?) = apply { this.price = price }
         fun categoryId(categoryId: UUID?) = apply { this.categoryId = categoryId }
+        fun cardId(cardId: UUID?) = apply { this.cardId = cardId }
 
-        fun build() = UpdateProductActionArgument(title, price, categoryId)
+        fun build() = UpdateProductActionArgument(title, price, categoryId,cardId)
     }
 
 }

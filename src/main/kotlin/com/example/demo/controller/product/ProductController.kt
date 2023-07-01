@@ -1,7 +1,7 @@
 package com.example.demo.controller.product
 
-import com.example.demo.action.CreateProductAction
-import com.example.demo.action.UpdateProductAction
+import com.example.demo.action.product.CreateProductAction
+import com.example.demo.action.product.UpdateProductAction
 import com.example.demo.controller.product.dto.CreateProductDto
 import com.example.demo.controller.product.dto.ProductDto
 import com.example.demo.controller.product.dto.SearchProductDto
@@ -44,7 +44,7 @@ class ProductController(
     }
 
     @DeleteMapping("delete/{id}")
-    fun delete(@PathVariable id: UUID?): HttpStatus {
+    fun delete(@PathVariable id: UUID): HttpStatus {
         productService.delete(id)
         return HttpStatus.OK
     }
